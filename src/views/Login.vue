@@ -3,10 +3,10 @@
     <div class="form">
       <h1>Sign In</h1>
       <p class="error-msg" v-if="error">{{ error }}</p>
-      <form class="login-form">
+      <form class="login-form" v-on:submit.prevent="login()">
         <input type="email" placeholder="Email" v-model="email" />
         <input type="password" placeholder="Password" v-model="password" />
-        <button type="button" @click="login()">Submit</button>
+        <button type="submit" @click="login()">Submit</button>
         <p class="message">
           Not Registered?
           <router-link to="/register">Sign Up</router-link>

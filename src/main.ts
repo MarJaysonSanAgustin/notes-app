@@ -4,10 +4,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "firebase/auth";
+import "firebase/firestore";
 
 Vue.config.productionTip = false;
 
-let app: any = null;
+let app: Vue;
 
 const firebaseConfig = {
   apiKey: "AIzaSyBIoTsZg9MjCl0_kJnQoJMJgNalwLp6wHI",
@@ -21,6 +22,8 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore();
 
 firebase.auth().onAuthStateChanged(user => {
   store.commit("updateUser", { user });

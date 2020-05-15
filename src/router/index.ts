@@ -4,6 +4,7 @@ import firebase from "firebase/app";
 
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import NotFound from "../views/404.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,15 @@ const routes: Array<RouteConfig> = [
     name: "Dashboard",
     component: () => import("../views/Dashboard.vue"),
     meta: { requiresAuth: true }
+  },
+  {
+    path: "/404",
+    name: "NotFound",
+    component: NotFound
+  },
+  {
+    path: "**",
+    redirect: "/404"
   }
 ];
 

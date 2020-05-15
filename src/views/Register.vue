@@ -3,7 +3,7 @@
     <div class="form">
       <h1>Sign Up</h1>
       <p class="error-msg" v-if="error">{{ error }}</p>
-      <form>
+      <form v-on:submit.prevent="register()">
         <input type="email" placeholder="Email" v-model="email" />
         <input type="password" placeholder="Password" v-model="password" />
         <button @click="register()" type="button">Submit</button>

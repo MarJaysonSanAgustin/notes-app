@@ -1,32 +1,31 @@
 <template>
-  <div>
-    <p>Dashboard</p>
-    <button type="button" @click="logout()">Logout</button>
+  <div class="dashboard-page">
+    <Navbar />
+    <NoteList />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import firebase from "firebase/app";
-import "firebase/auth";
+
+import NoteList from "@/components/NoteList.vue";
+import Navbar from "@/components/Nav.vue";
 
 export default Vue.extend({
-  data() {
-    return {
-      email: "",
-      password: "",
-      error: null
-    };
+  name: "Dashboard",
+  components: {
+    NoteList,
+    Navbar
   },
-  methods: {
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace("/");
-        });
-    }
-  }
+  data() {
+    return {};
+  },
+  methods: {}
 });
 </script>
+
+<style lang="scss" scoped>
+.dashboard-page {
+  text-align: center;
+}
+</style>
